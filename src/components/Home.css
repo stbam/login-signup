@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    text-align: center;
+    padding: 0;
+  }
+  
+  main {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+  }
+  
+  #leftDiv {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  #rightDiv {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
