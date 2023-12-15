@@ -55,9 +55,7 @@ function Login() {
         <input type="submit" onClick={submit} />
       </form>
 
-      <br />
-      <p>OR</p>
-      <br />
+      
 
       <Link to="/signup">Signup Page</Link>
     </div>

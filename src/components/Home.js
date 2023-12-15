@@ -6,7 +6,6 @@ function Home (){
 
     return (
         <div className="homepage">
-
             <h1>Hello {location.state.id} and welcome to the home</h1>
 
         </div>
