@@ -30,14 +30,24 @@ function App() {
   return (
     <div>
       <header>
-        <h1>ScribbleBook</h1>
+          <h1>ScribbleBook</h1>
+          
+       
+       
       </header>
+      
+
       <main>
+
         <div id="leftDiv">
           <Canvas/>
         </div>
         <div id="rightDiv">
-          <h3>Scribble Title</h3>
+          <div className="title-manip">
+              <h3>Scribble Title</h3>
+              <Link id="link" to="/">Logout</Link>
+          </div>
+         
           <input
             type="text"
             placeholder="Enter Drawing Title"
@@ -55,6 +65,8 @@ function App() {
               <button onClick={handleDownload}>Submit</button>
               <Link id="link" to="http://localhost:3002/">Go to gallery</Link>
           </div>
+
+         
           
 
 

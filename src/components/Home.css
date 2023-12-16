@@ -51,10 +51,16 @@ body {
     margin-bottom: 10px;
     box-sizing: border-box;
   }
-  h1{
-
+  nav{
+   
 
   }
+  .title-manip{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
   #link{
     text-decoration: none;
   }
@@ -65,3 +71,32 @@ body {
     display: flex;
     justify-content: space-between;
   }
+  h1{
+    display: flex;
+    justify-content: center;
+  }
+.buttons{
+
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+#submit {
+  width: 50%;
+  background-color: #007bff;
+  color: rgb(214, 222, 229);
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  height: 50px;
+  transition: background-color 0.3s;
+}
+
+#submit:hover {
+  background-color:#0056b3; /* Change the color on hover */
+}
+a{
+  font-size: 20px;
+  text-decoration: none;
+}
+  

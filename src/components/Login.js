@@ -53,12 +53,16 @@ function Login() {
           }}
           placeholder="Password"
         />
-        <input type="submit" onClick={submit} />
+        <div className="buttons">
+            <input type="submit" onClick={submit} id="submit" />
+            <Link to="/signup">Signup Page</Link>
+        </div>
+        
       </form>
 
       
 
-      <Link to="/signup">Signup Page</Link>
+     
     </div>
   );
 }
