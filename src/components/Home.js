@@ -1,5 +1,6 @@
 import "./Home.css";
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import Canvas from "./Canvas"
 
 
@@ -50,7 +51,13 @@ function App() {
             value={scribbleDescription}
             onChange={(e) => setScribbleDescription(e.target.value)}
           ></textarea>
-          <button onClick={handleDownload}>Submit</button>
+          <div className="home-flex">
+              <button onClick={handleDownload}>Submit</button>
+              <Link id="link" to="http://localhost:3002/">Go to gallery</Link>
+          </div>
+          
+
+
         </div>
       </main>
     </div>

@@ -31,6 +31,7 @@ function Signup() {
                 email,
                 password,
                 username: user,
+                
             })
             .then((res) => {
                 if (res.data === "exist") {
