@@ -7,15 +7,19 @@
 </head>
 
 <body style="font-family: Arial, sans-serif; background-color: #f0f0f0; color: #333;">
-
-    <h1 style="text-align: center; color: #007bff;">Gallery</h1>
+    <h1 style="text-align: center; color: #007bff;">Gallery</h1>    
     <hr />
     <div style="margin: 20px;">
 
         <form action="/" method="POST" enctype="multipart/form-data" >
             <div style="margin-bottom: 10px;  ">
 
-                <label for="name" style="font-weight: bold;">Image Title</label>
+                <label for="name" style="font-weight: bold; position:absolute ;">Image Title</label>
+                <div style="display:flex; justify-content:flex-end; align-items: flex-start;">   
+       
+                    <a href="http://localhost:3003/" style="text-decoration:none;color: #007bff;">Logout</a>
+                </div>
+
                 <input
                     type="text"
                     id="name"

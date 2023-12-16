@@ -8,6 +8,7 @@ function App() {
   const [scribbleTitle, setScribbleTitle] = useState("");
   const [scribbleDescription, setScribbleDescription] = useState("");
 
+  
   const handleDownload = () => {
     // Check if text areas are filled before proceeding with download
     if (scribbleTitle.trim() === "" || scribbleDescription.trim() === "") {
@@ -32,7 +33,7 @@ function App() {
       <header>
           <h1>ScribbleBook</h1>   
       </header>
-      
+
 
       <main>
 
