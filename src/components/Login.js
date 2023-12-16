@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const history = useNavigate();
@@ -13,24 +14,19 @@ function Login() {
     e.preventDefault();
 
     try {
-      await axios
-        .post("http://localhost:8000/", {
-          email,
-          password,
-        })
-        .then((res) => {
-          if (res.data === "exist") {
-            history("/home", { state: { id: email } });
-          } else if (res.data === "notexist") {
-            alert("User has not signed up");
-          }
-        })
-        .catch((e) => {
-          alert("Wrong details");
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
+      const res = await axios.post("http://localhost:8000/", {
+        email,
+        password,
+      });
+
+      if (res.data === "exist") {
+        history("/home", { state: { id: email } });
+      } else if (res.data === "notexist") {
+        toast.error("User has not signed up");
+      }
+    } catch (error) {
+      toast.error("Wrong details");
+      console.error(error);
     }
   }
 
@@ -54,15 +50,12 @@ function Login() {
           placeholder="Password"
         />
         <div className="buttons">
-            <input type="submit" onClick={submit} id="submit" />
-            <Link to="/signup">Signup Page</Link>
+          <input type="submit" onClick={submit} id="submit" />
+          <Link to="/signup">Signup Page</Link>
         </div>
-        
       </form>
 
-      
-
-     
+      <ToastContainer />
     </div>
   );
 }

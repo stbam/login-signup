@@ -30,10 +30,7 @@ function App() {
   return (
     <div>
       <header>
-          <h1>ScribbleBook</h1>
-          
-       
-       
+          <h1>ScribbleBook</h1>   
       </header>
       
 

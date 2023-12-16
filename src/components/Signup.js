@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
     const history = useNavigate();
@@ -16,35 +18,30 @@ function Signup() {
 
         // Check if password and confirm password match
         if (password !== confirmPassword) {
-            alert("Password and Confirm Password do not match");
+            toast.error("Password and Confirm Password do not match");
             return;
         }
 
         // Check if username and confirm username match
         if (user !== confirmUser) {
-            alert("Username and Confirm Username do not match");
+            toast.error("Username and Confirm Username do not match");
             return;
         }
 
         try {
-            await axios.post("http://localhost:8000/signup", {
+            const res = await axios.post("http://localhost:8000/signup", {
                 email,
                 password,
                 username: user,
-                
-            })
-            .then((res) => {
-                if (res.data === "exist") {
-                    alert("User already exists");
-                } else if (res.data === "notexist") {
-                    history("/home", { state: { id: email } });
-                }
-            })
-            .catch((error) => {
-                alert("Wrong details");
-                console.log(error);
             });
+
+            if (res.data === "exist") {
+                toast.error("User already exists");
+            } else if (res.data === "notexist") {
+                history("/home", { state: { id: email } });
+            }
         } catch (error) {
+            toast.error("Wrong details");
             console.log(error);
         }
     };
@@ -60,7 +57,8 @@ function Signup() {
                 <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" />
                 <input type="submit" onClick={submit} />
             </form>
-            <Link to="/">Login Page</Link>
+            <Link to="/">Go back to login page</Link>
+            <ToastContainer />
         </div>
     );
 }
