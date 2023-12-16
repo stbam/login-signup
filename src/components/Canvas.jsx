@@ -10,7 +10,7 @@ export default function Canvas() {
   const timeout = useRef(null);
   const [cursor, setCursor] = useState("default");
 
-  useEffect(() => {
+  /*useEffect(() => {
     const canvas = canvasRef.current;
     ctx.current = canvas.getContext("2d");
 
@@ -29,7 +29,30 @@ export default function Canvas() {
       };
       image.src = canvasimg;
     }
-  }, [ctx]);
+  }, [ctx]);*/
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    ctx.current = canvas.getContext("2d");
+  
+    // Resizing
+    canvas.height = window.innerHeight * 0.8;
+    canvas.width = window.innerWidth * 0.45;
+  
+    // Remove the following code related to local storage
+    /*
+    const canvasimg = localStorage.getItem("canvasimg");
+    if (canvasimg) {
+      var image = new Image();
+      ctx.current = canvas.getContext("2d");
+      image.onload = function () {
+        ctx.current.drawImage(image, 0, 0);
+        setIsDrawing(false);
+      };
+      image.src = canvasimg;
+    }
+    */
+  }, []);
+  
 
   const startPosition = ({ nativeEvent }) => {
     setIsDrawing(true);

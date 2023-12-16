@@ -22,12 +22,10 @@ app.post("/",async(req,res)=>{
         else{
             res.json("notexist")
         }
-
     }
     catch(e){
         res.json("fail")
     }
-
 })
 
 

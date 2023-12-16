@@ -2,6 +2,7 @@ import "./Home.css";
 import React, { useState } from "react";
 import Canvas from "./Canvas"
 
+
 function App() {
   const [scribbleTitle, setScribbleTitle] = useState("");
   const [scribbleDescription, setScribbleDescription] = useState("");
@@ -32,7 +33,7 @@ function App() {
       </header>
       <main>
         <div id="leftDiv">
-          <Canvas />
+          <Canvas/>
         </div>
         <div id="rightDiv">
           <h3>Scribble Title</h3>
