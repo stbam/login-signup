@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -14,46 +14,75 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/", {
-        email,
-        password,
-      });
-
+      const res = await axios.post(
+        "https://scribblebook-backend.onrender.com",
+        {
+          email,
+          password,
+        }
+      );
       if (res.data === "exist") {
-        history("/home", { state: { id: email } });
+        console.log("User exists");
+        history(`/home?id=${email}`);
       } else if (res.data === "notexist") {
         toast.error("User has not signed up");
       }
     } catch (error) {
-      toast.error("Wrong details");
+      toast.error("Invalid email or password");
       console.error(error);
     }
   }
 
   return (
-    <div className="login">
-      <h1>Login</h1>
+    <div
+      className="login"
+      style={{
+        backgroundImage: `url(${require("./background/log.jpg")})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          padding: "20px",
+          borderRadius: "8px",
+          width: "300px",
+        }}
+      >
+        <h1 style={{ fontWeight: "bold", color: "white", textAlign: "center" }}>
+          Login
+        </h1>
 
-      <form action="POST">
-        <input
-          type="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          placeholder="Password"
-        />
-        <div className="buttons">
-          <input type="submit" onClick={submit} id="submit" />
-          <Link to="/signup">Signup Page</Link>
-        </div>
-      </form>
+        <form onSubmit={submit}>
+          <input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <div
+            className="buttons"
+            style={{ textAlign: "center", marginTop: "10px" }}
+          >
+            <button type="submit" id="submit">
+              Submit
+            </button>
+            <Link to="/signup" style={{ marginLeft: "10px" }}>
+              Signup Page
+            </Link>
+          </div>
+        </form>
+      </div>
 
       <ToastContainer />
     </div>

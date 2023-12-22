@@ -1,14 +1,12 @@
 import "./Home.css";
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import Canvas from "./Canvas"
-
+import { Link } from "react-router-dom";
+import Canvas from "./Canvas";
 
 function App() {
   const [scribbleTitle, setScribbleTitle] = useState("");
   const [scribbleDescription, setScribbleDescription] = useState("");
 
-  
   const handleDownload = () => {
     // Check if text areas are filled before proceeding with download
     if (scribbleTitle.trim() === "" || scribbleDescription.trim() === "") {
@@ -31,21 +29,21 @@ function App() {
   return (
     <div>
       <header>
-          <h1>ScribbleBook</h1>   
+        <h1>ScribbleBook</h1>
       </header>
 
-
       <main>
-
         <div id="leftDiv">
-          <Canvas/>
+          <Canvas />
         </div>
         <div id="rightDiv">
           <div className="title-manip">
-              <h3>Scribble Title</h3>
-              <Link id="link" to="/">Logout</Link>
+            <h3>Scribble Title</h3>
+            <Link id="link" to="/">
+              Logout
+            </Link>
           </div>
-         
+
           <input
             type="text"
             placeholder="Enter Drawing Title"
@@ -60,14 +58,9 @@ function App() {
             onChange={(e) => setScribbleDescription(e.target.value)}
           ></textarea>
           <div className="home-flex">
-              <button onClick={handleDownload}>Submit</button>
-              <Link id="link" to="http://localhost:3002/">Go to gallery</Link>
+            <button onClick={handleDownload}>Submit</button>
+            <Link to="/gallery">Go to Gallery</Link>
           </div>
-
-         
-          
-
-
         </div>
       </main>
     </div>
